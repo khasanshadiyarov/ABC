@@ -39,29 +39,23 @@ endwhile (No)
 :Formulate Research Objectives;
 :Formulate Research Hypotheses;
 fork
-    :Develop a Data Collection Plan;
+    :Define Feasibility Terms;
 fork again
-    repeat :Collect Analytical Tools;
-    repeat while (Enough Tools) is (No)
+    repeat :Evaluate Feasibility;
+    backward:Optimize Terms;
+    repeat while (Feasible Research) is (No)
     ->Yes;
 endfork
 fork
-    :Define Feasibility Terms;
+    :Define Logistics;
 fork again
-    :Evaluate Feasibility;
+    repeat :Plan the Logistics;
+    repeat while (Feasibility Aligned) is (No)
+    ->Yes;
 endfork
-if (Research is Feasible) then (Yes)
-else (No)
-    stop
-endif
 repeat :Write the Research Proposal;
 repeat while (Proposal Approved) is (No)
 ->Yes;
-fork
-    :Define Logistics;
-fork again
-    :Plan the Logistics;
-endfork
 :Collect Data;
 repeat :Optimize the Data;
 repeat while (Data Meets the Design) is (No)
@@ -72,7 +66,11 @@ repeat while (Data Meets the Design) is (No)
 :Prepare a Presentation Plan;
 :Present the Results;
 if (Further Actions Needed) then (Yes)
-    :Evaluation and Follow-Up;
+    fork
+        :Monitor the Research;
+    fork again
+        :Pursue the Research;
+    endfork
     end
 else (No)
     stop

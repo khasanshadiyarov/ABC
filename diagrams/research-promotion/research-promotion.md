@@ -11,17 +11,21 @@ Research promotion is an activity diagram, which is used as a blueprint to promo
 ```plantuml
 @startuml
 start
-repeat :Prepare the Research;
+repeat :Prepare a Research;
 repeat while (Ready for Promotion) is (No)
 ->Yes;
-if (Accessible Personal Source) then (Yes)
-    :Deploy on Personal Source;
+if (Accessible Personal Source(s)) then (Yes)
+    :Deploy the Research;
+    note right
+        Publication source 
+        managed by the author.
+    endnote
 else (No)
 endif
 if (Publishing Required) then (Yes)
     :Find a Publisher;
     repeat :Publish the Research;
-    backward:Evaluate and Adapt the Research;
+    backward:Adapt the Research;
     repeat while (Guidelines are Met) is (No)
     ->Yes;
 else (No)
@@ -30,26 +34,32 @@ repeat :Identify the Audience;
 :Prioritize Key Groups;
 repeat while (Reachable Groups) is (No)
 ->Yes;
-if (Multimedia Resources) then (Yes)
-    repeat :Clarify Multimedia Resources;
-    repeat while (Creation is Feasible) is (No)
-    ->Yes;
-    :Create Multimedia Resources;
-else (No)
-endif
+while (Multimedia Resource) is (Yes)
+    if (Feasible Creation) then (Yes)
+        :Create the Resource;
+        note right
+            Multimedia resource 
+            with promotion value.
+        endnote
+    else (No)
+    endif
+endwhile (No)
 :Promote the Outputs Online;
+note right
+    Research and its 
+    additional resources.
+endnote
 repeat :Monitor the Outputs;
-backward:Evaluate and Adapt the Outputs;
+backward:Adapt the Outputs;
 repeat while (Satisfactory Impact) is (No)
 ->Yes;
-if (Research Potential Reached) then (No)
+while (Research Potential Reached) is (No)
     fork
         :Reach Out to a Wider Audience;
     fork again
         :Engage in Networking and Collaboration;
     endfork
-else (Yes)
-endif
+endwhile (Yes)
 end
 @enduml
 ```
