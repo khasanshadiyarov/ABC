@@ -11,33 +11,26 @@ Applied research conduction diagram is an activity diagram, which is used as a b
 ```plantuml
 @startuml
 start
-:Define the Purpose;
-if (Problem Solving) then (Yes)
-(No) elseif (Practice Improvement) then (Yes)
-else (No)
-    stop
-endif
-:Select a Research Design;
-if (Qualitative) then (Yes)
-(No) elseif (Quantitative) then (Yes)
-(No) elseif (Multimethod) then (Yes)
-else (No)
-    stop
-endif
-fork
-    :Develop Data Collection Plan;
-fork again
-    :Collect Data Analytical Tools;
-    if (Enough Tools) then (Yes)
+repeat :Define the Purpose;
+    if (Problem Solving) then (Yes)
+    (No) elseif (Practice Improvement) then (Yes)
     else (No)
-        stop
     endif
-endfork
+repeat while (Purpose Clarified) is (No)
+->Yes;
+repeat :Select the Design;
+    if (Qualitative) then (Yes)
+    (No) elseif (Quantitative) then (Yes)
+    (No) elseif (Multimethod) then (Yes)
+    else (No)
+    endif
+repeat while (Design Clarified) is (No)
+->Yes;
 :Identify the Study Site;
-:Define and Describe the Problem;
+:Describe the Problem;
 while (Existing Solution) is (Yes)
-    :Review Literature;
-    :Evaluate Satisfactory;
+    :Review the Literature;
+    :Evaluate Satisfaction;
     if (Satisfactory Solution) then (Yes)
         stop
     else (No)
@@ -46,42 +39,38 @@ endwhile (No)
 :Formulate Research Objectives;
 :Formulate Research Hypotheses;
 fork
+    :Develop a Data Collection Plan;
+fork again
+    repeat :Collect Analytical Tools;
+    repeat while (Enough Tools) is (No)
+    ->Yes;
+endfork
+fork
     :Define Feasibility Terms;
 fork again
-    :Evaluate the Feasibility;
+    :Evaluate Feasibility;
 endfork
 if (Research is Feasible) then (Yes)
 else (No)
     stop
 endif
-:Write a Research Proposal;
-if (Proposal Approved) then (Yes)
-else (No)
-    stop
-endif
+repeat :Write the Research Proposal;
+repeat while (Proposal Approved) is (No)
+->Yes;
 fork
     :Define Logistics;
 fork again
     :Plan the Logistics;
 endfork
 :Collect Data;
-if (Data Meets the Design) then (Yes)
-(No) elseif (Optimization Available) then (Yes)
-    :Optimize the Data;
-else (No)
-    stop
-endif
-if (Enough Tools) then (Yes)
-(No) elseif (Supplementation Available) then (Yes)
-    :Supplement the Tools;
-else (No)
-    stop
-endif
-:Analyze Data;
+repeat :Optimize the Data;
+repeat while (Data Meets the Design) is (No)
+->Yes;
+:Analyze the Data;
 :Interpret the Research Findings;
 :Write the Final Report;
-:Prepare Presentation Plan;
-:Present Results;
+:Prepare a Presentation Plan;
+:Present the Results;
 if (Further Actions Needed) then (Yes)
     :Evaluation and Follow-Up;
     end
