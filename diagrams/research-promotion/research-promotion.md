@@ -1,5 +1,5 @@
-# Research Promotion
-Research promotion is an activity diagram, which is used as a blueprint to promote a research in order to increase public awareness of it. This takes into account research publishing, audience identification and engagement via creating multimedia resources and progressively reaching out a wider audience.
+# Research Promotion Diagram
+Research promotion diagram is an activity diagram, which is used as a blueprint to promote a research in order to increase public awareness of it. This takes into account research publishing, audience identification and engagement via creating multimedia resources and progressively reaching out a wider audience.
 
 ---
 
@@ -18,7 +18,7 @@ if (Accessible Personal Source(s)) then (Yes)
     :Deploy the Research;
     note right
         Publication source 
-        managed by the author.
+        controlled by the author.
     endnote
 else (No)
 endif
@@ -34,7 +34,7 @@ repeat :Identify the Audience;
 :Prioritize Key Groups;
 repeat while (Reachable Groups) is (No)
 ->Yes;
-while (Multimedia Resource) is (Yes)
+while (Possible Multimedia Resource) is (Yes)
     if (Feasible Creation) then (Yes)
         :Create the Resource;
         note right
@@ -44,10 +44,10 @@ while (Multimedia Resource) is (Yes)
     else (No)
     endif
 endwhile (No)
-:Promote the Outputs Online;
+:Promote the Outputs;
 note right
-    Research and its 
-    additional resources.
+    Research outputs and 
+    its additional resources.
 endnote
 repeat :Monitor the Outputs;
 backward:Adapt the Outputs;
