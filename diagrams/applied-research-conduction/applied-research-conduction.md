@@ -10,66 +10,72 @@ Applied research conduction diagram is an activity diagram, which is used as a b
 ## Diagram
 ```plantuml
 @startuml
+|Prepare|
 start
-repeat :Define the Purpose;
-    if (Problem Solving) then (Yes)
-    (No) elseif (Practice Improvement) then (Yes)
-    else (No)
-    endif
-repeat while (Purpose Clarified) is (No)
-->Yes;
-repeat :Select the Design;
-    if (Qualitative) then (Yes)
-    (No) elseif (Quantitative) then (Yes)
-    (No) elseif (Multimethod) then (Yes)
-    else (No)
-    endif
-repeat while (Design Clarified) is (No)
-->Yes;
-:Identify the Study Site;
-:Describe the Problem;
+:Define Purpose;
+note right
+    * Problem Solving;
+    * Practice Improvement.
+endnote
+:Select a Design;
+note right
+    * Qualitative;
+    * Quantitative;
+    * Multimethod.
+endnote
+:Identify Study Site;
+|Research|
+:Describe Problem;
+|Prepare|
 while (Existing Solution) is (Yes)
-    :Review the Literature;
+    :Review Literature;
     :Evaluate Satisfaction;
     if (Satisfactory Solution) then (Yes)
         stop
     else (No)
     endif
 endwhile (No)
+|#gainsboro|Research|
 :Formulate Research Objectives;
 :Formulate Research Hypotheses;
-fork
-    :Define Feasibility Terms;
-fork again
-    repeat :Evaluate Feasibility;
-    backward:Optimize Terms;
-    repeat while (Feasible Research) is (No)
-    ->Yes;
-endfork
+|Prepare|
+:Define Feasibility Terms;
+repeat :Evaluate Feasibility;
+backward:Optimize Terms;
+repeat while (Feasible Research) is (No)
+->Yes;
+|Research|
 fork
     :Define Logistics;
 fork again
-    repeat :Plan the Logistics;
+    repeat :Plan Logistics;
     repeat while (Feasibility Aligned) is (No)
     ->Yes;
 endfork
-repeat :Write the Research Proposal;
+repeat :Write Research Proposal;
 repeat while (Proposal Approved) is (No)
 ->Yes;
 :Collect Data;
-repeat :Optimize the Data;
+repeat :Optimize Data;
 repeat while (Data Meets the Design) is (No)
 ->Yes;
-:Analyze the Data;
-:Interpret the Research Findings;
-:Write the Final Report;
-:Prepare a Presentation Plan;
-:Present the Results;
+:Analyze Data;
+:Interpret Research Findings;
+:Write Final Report;
+repeat :Edit and Proofread;
+repeat while (Mistakes Found) is (Yes)
+->No;
+|Monitor|
+if (Presentation Needed) then (Yes)
+    :Prepare Presentation Plan;
+    :Present Results;
+else (No)
+endif
 if (Further Actions Needed) then (Yes)
     fork
-        :Monitor the Research;
+        :Monitor Research;
     fork again
-        :Pursue the Research;
+        :Sustain Research;
     endfork
     end
 else (No)
