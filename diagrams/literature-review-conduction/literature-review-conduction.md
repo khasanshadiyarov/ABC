@@ -31,13 +31,6 @@ backward:Optimize Terms;
 repeat while (Feasible Review) is (No)
 ->Yes;
 :Identify Keywords;
-while (Available Database) is (Yes)
-    fork
-        :Search Database;
-    fork again
-        :Select Literature;
-    endfork
-endwhile (No)
 :Select a Structure;
 note right
     * Chronological;
@@ -45,6 +38,13 @@ note right
     * Methodological;
     * Theoretical.
 endnote
+while (Available Database) is (Yes)
+    fork
+        :Search Database;
+    fork again
+        :Select Literature;
+    endfork
+endwhile (No)
 :Organize Sources;
 note right
     Sources reflects 
